@@ -9,9 +9,9 @@
 
 extern {
     #[link_name = "Foo::my_demo_function"]
-    fn my_demo_function(a:u32) -> u32;
+    fn my_demo_function(a:u32) -> u32{a};
     #[link_name = "Foo::my_demo_function"]
-    fn my_demo_function_alias(a:u32) -> u32;
+    fn my_demo_function_alias(a:u32) -> u32{a};
 }
 
 
