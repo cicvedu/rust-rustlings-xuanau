@@ -12,7 +12,7 @@ use std::env;
 use std::time::{SystemTime,UNIX_EPOCH};
 
 fn main() {
-    let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
+    let mut timestamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
     let test_foo_value = timestamp+5;
     env::set_var("TEST_FOO",test_foo_value.to_string());
     println!("cargo:rerun-if-changed=build.rs");
