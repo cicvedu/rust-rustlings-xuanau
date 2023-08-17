@@ -9,6 +9,7 @@ macro_rules! my_macro {
     };
 }
 
+#[macro_export]
 fn main() {
     my_macro!();
 }
