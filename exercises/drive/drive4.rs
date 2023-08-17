@@ -12,11 +12,11 @@ use std::time::{SystemTime,UNIX_EPOCH};
 
 
 fn main() {
-    let tempstamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
+    let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
     let test_foo_value = timestamp+5;
     env::set_var("TEST_FOO",test_foo_value.to_string());
-    println!("cargo:return-if-changed=build.rs");
-    println!("rcargo:zustc-env=TEST_FOO={}",test_foo_value);
+    println!("cargo:rerun-if-changed=build.rs");
+    println!("rcargo:rustc-env=TEST_FOO={}",test_foo_value);
     if test_foo_value %2 ==0{
         println!("cargo:rustc-cfg=feature=\"pass\"");
         
