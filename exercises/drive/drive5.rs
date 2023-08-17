@@ -10,7 +10,7 @@
 extern {
     #[link_name = "Foo::my_demo_function"]
     fn my_demo_function(a:u32) -> u32;
-    #[link_name = "Foo:my_demo_function"]
+    #[link_name = "Foo::my_demo_function"]
     fn my_demo_function_alias(a:u32) -> u32;
 }
 
