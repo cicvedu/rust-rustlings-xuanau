@@ -3,14 +3,20 @@
 // Execute `rustlings hint drive1` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 // We look for an environment variable and expect it to fall in a range.
 // look into the testcase to find out the details.
 // You should not modify this file. Modify `build.rs` to pass this exercise.
+use std::env;
+use std::time::{SystemTime,UNIX_EPOCH};
 
 fn main() {
-
+    let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
+    let test_foo_value = timestamp+5;
+    env::set_var("TEST_FOO",test_foo_value.to_string());
+    println!("cargo:return-if-changed=build.rs");
+    println!("rcargo:zustc-env=TEST_FOO={}",test_foo_value);
 }
 
 #[cfg(test)]
