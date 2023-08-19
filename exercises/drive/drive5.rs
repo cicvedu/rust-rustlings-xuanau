@@ -33,9 +33,9 @@ mod tests {
 
     #[test]
     fn test_success() {
-        let a:u64 = my_demo_function(123);
-        let b:u64 = my_demo_function_alias(123);
-        assert_eq!(a,b)
+        let a = my_demo_function(123);
+        let b = my_demo_function_alias(123);
+        assert_eq!(a,b);
         
     //     unsafe {
     //         let a:u64 = my_demo_function(123);
