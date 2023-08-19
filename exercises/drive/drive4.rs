@@ -31,10 +31,10 @@ mod tests {
 
     #[test]
     fn test_success() {
-        #[cfg(feature = "pass")]
+        // #[cfg(feature = "pass")]
         let timestamp:64 =10;
         let e:u64 = 10;
-        assert!(timestamp>=e&&timestamp<e+10);
+        assert! (timestamp>=e&&timestamp<e+10);
         // return;
 
         // panic!("no cfg set");
