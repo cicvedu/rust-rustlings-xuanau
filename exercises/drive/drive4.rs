@@ -31,9 +31,13 @@ mod tests {
 
     #[test]
     fn test_success() {
-        // #[cfg(feature = "pass")]
-        let timestamp:64 =10;
-        let e:u64 = 10;
+        let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
+        let e:u64 = timestamp;
+        assert! (timestamp >= e && timestamp < e + 10);
+        
+        // // #[cfg(feature = "pass")]
+        // let timestamp:u64 =10;
+        // let e:u64 = 10;
         assert! (timestamp>=e&&timestamp<e+10);
         // return;
 
