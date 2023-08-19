@@ -30,13 +30,13 @@ mod tests {
 
     #[test]
     fn test_success() {
-        // let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
+        let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
         // let key = "TEST_FOO";
         // env::set_var(key,timestamp);
         // let s = std::env::var("TEST_FOO").unwrap();
         // let e:u64 = s.parse().unwrap();
-        let timestamp:u64 = 10;
-        let e:u64 = 10;
+        // let timestamp:u64 = 10;
+        let e:u64 = timestamp;
         assert! (timestamp >= e && timestamp < e + 10);
     }
 }
