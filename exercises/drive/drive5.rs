@@ -15,12 +15,12 @@ extern "C" {
 }
 
 
+pub fn my_demo_function(a:u32) -> u32{a}
+pub fn my_demo_function_alias(a:u32) -> u32{a}
 
-
-mod Foo{
-    fn my_demo_function(a:u32) -> u32{a}
-
-}
+// mod Foo{
+//     fn my_demo_function(a:u32) -> u32{a}
+// }
 
 
 
@@ -31,8 +31,8 @@ mod tests {
     #[test]
     fn test_success() {
         unsafe {
-            FOO::my_demo_function(123);
-            FOO::my_demo_function_alias(456);
+            my_demo_function(123);
+            my_demo_function_alias(456);
         }
     }
 }
