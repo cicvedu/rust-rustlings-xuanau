@@ -5,26 +5,31 @@
 // You should not modify any existing code. All you need to do is add two line of attributes.
 
 
+// drive4.rs
+//
+// Execute `rustlings hint drive1` or use the `hint` watch subcommand for a
+// hint.
 
 
-// extern "C" {
-//     // #[link_name = "Foo::my_demo_function"]
-//     fn my_demo_function(a:u32) -> u32
-//     // #[link_name = "Foo::my_demo_function"]
-//     fn my_demo_function_alias(a:u32) -> u32
-// }
+// This execrise shares build.rs with the previous exercise.
+// You need to add some code to build.rs to make both this exercise and
+// the previous one work.
+use std::env;
+use std::time::{SystemTime,UNIX_EPOCH};
 
-pub fn my_demo_function(a:u32) -> u32{
-    a
+
+fn main() {
+    // let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
+    // let test_foo_value = timestamp+5;
+    // env::set_var("TEST_FOO",test_foo_value.to_string());
+    // println!("cargo:rerun-if-changed=build.rs");
+    // println!("rcargo:rustc-env=TEST_FOO={}",test_foo_value);
+    // if test_foo_value %2 ==0{
+    //     println!("cargo:rustc-cfg=feature=\"pass\"");
+        
+    // }
+
 }
-pub fn my_demo_function_alias(a:u32) -> u32{
-    a
-}
-
-// mod Foo{
-//     fn my_demo_function(a:u32) -> u32{a}
-// }
-
 
 
 #[cfg(test)]
@@ -33,15 +38,16 @@ mod tests {
 
     #[test]
     fn test_success() {
-        let a = my_demo_function(123);
-        // let b = my_demo_function_alias(123);
-        assert_eq!(a,123);
-        // assert_eq!(b,123);
+        let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
+        let e:u64 = timestamp;
+        assert! (timestamp >= e && timestamp < e + 10);
         
-    //     unsafe {
-    //         let a:u64 = my_demo_function(123);
-    //         let b:u64 = my_demo_function_alias(456);
-    //     }
-    //     assert!(a<b,"a is smaller")
-    // }
+        // // #[cfg(feature = "pass")]
+        // let timestamp:u64 =10;
+        // let e:u64 = 10;
+        assert! (timestamp>=e&&timestamp<e+10);
+        // return;
+
+        // panic!("no cfg set");
+    }
 }
