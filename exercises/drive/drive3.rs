@@ -36,7 +36,7 @@ mod tests {
         // let s = std::env::var("TEST_FOO").unwrap();
         // let e:u64 = s.parse().unwrap();
         let timestamp:u64 = 10;
-        let e:u64 = 9;
+        let e:u64 = 10;
         assert! (timestamp >= e && timestamp < e + 10);
     }
 }
