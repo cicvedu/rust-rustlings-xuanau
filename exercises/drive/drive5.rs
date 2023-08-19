@@ -8,10 +8,10 @@
 
 
 extern {
-    #[link_name = "Foo::my_demo_function"]
-    fn my_demo_function(a:u32) -> u32{a};
-    #[link_name = "Foo::my_demo_function_alias"]
-    fn my_demo_function_alias(a:u32) -> u32{a};
+    // #[link_name = "Foo::my_demo_function"]
+    fn my_demo_function(a:u32) -> u32;
+    // #[link_name = "Foo::my_demo_function"]
+    fn my_demo_function_alias(a:u32) -> u32;
 }
 
 
@@ -19,7 +19,7 @@ extern {
 
 mod Foo{
     fn my_demo_function(a:u32) -> u32 {a}
-    fn my_demo_function_alias(a:u32) ->u32{a}
+    // fn my_demo_function_alias(a:u32) ->u32{a}
 }
 
 
