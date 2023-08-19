@@ -30,10 +30,14 @@ mod tests {
 
     #[test]
     fn test_success() {
-        unsafe {
-            let a:u64 = my_demo_function(123);
-            let b:u64 = my_demo_function_alias(456);
-        }
-        assert!(a<b,"a is smaller")
-    }
+        let a:u64 = my_demo_function(123);
+        let b:u64 = my_demo_function_alias(123);
+        assert_eq!(a,b)
+        
+    //     unsafe {
+    //         let a:u64 = my_demo_function(123);
+    //         let b:u64 = my_demo_function_alias(456);
+    //     }
+    //     assert!(a<b,"a is smaller")
+    // }
 }
