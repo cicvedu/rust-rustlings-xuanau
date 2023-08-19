@@ -17,6 +17,11 @@ fn main() {
     // env::set_var("TEST_FOO",test_foo_value.to_string());
     // println!("cargo:rerun-if-changed=build.rs");
     // println!("cargo:rustc-env=TEST_FOO={}",test_foo_value);
+    let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
+    let test_foo_value:u64 = timestamp.parseInt().unwrap()+3;
+    let key = "TEST_FOO";
+    env::set_var(key,test_foo_value);
+    let e:u64 = test_foo_value.parse().unwrap();
 }
 
 #[cfg(test)]
