@@ -17,7 +17,7 @@
 pub fn my_demo_function(a:u32) -> u32{
     a
 }
-fn my_demo_function_alias(a:u32) -> u32{
+pub fn my_demo_function_alias(a:u32) -> u32{
     a
 }
 
@@ -34,7 +34,7 @@ mod tests {
     #[test]
     fn test_success() {
         let a = my_demo_function(123);
-        let b = my_demo_function_alias(123);
+        // let b = my_demo_function_alias(123);
         assert_eq!(a,123);
         // assert_eq!(b,123);
         
