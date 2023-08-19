@@ -7,22 +7,22 @@
 
 
 
-extern "C" {
-    // #[link_name = "Foo::my_demo_function"]
-    fn FOO:my_demo_function(a:u32) -> u32
-    // #[link_name = "Foo::my_demo_function"]
-    fn FOO:my_demo_function_alias(a:u32) -> u32
-}
+// extern "C" {
+//     // #[link_name = "Foo::my_demo_function"]
+//     fn FOO:my_demo_function(a:u32) -> u32
+//     // #[link_name = "Foo::my_demo_function"]
+//     fn FOO:my_demo_function_alias(a:u32) -> u32
+// }
 
 
 
 
 mod Foo{
     fn my_demo_function(a:u32) -> u32{
-        a
+        a;
     }
     fn my_demo_function_alias(a:u32) -> u32{
-        a
+        a;
     }
 }
 
@@ -35,8 +35,8 @@ mod tests {
     #[test]
     fn test_success() {
         unsafe {
-            my_demo_function(123);
-            my_demo_function_alias(456);
+            FOO::my_demo_function(123);
+            FOO::my_demo_function_alias(456);
         }
     }
 }
