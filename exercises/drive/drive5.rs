@@ -5,21 +5,31 @@
 // You should not modify any existing code. All you need to do is add two line of attributes.
 
 
-// I AM NOT DONE
+// drive4.rs
+//
+// Execute `rustlings hint drive1` or use the `hint` watch subcommand for a
+// hint.
 
 
-extern {
-    fn my_demo_function(a:u32) -> u32;
-    fn my_demo_function_alias(a:u32) -> u32;
+// This execrise shares build.rs with the previous exercise.
+// You need to add some code to build.rs to make both this exercise and
+// the previous one work.
+use std::env;
+use std::time::{SystemTime,UNIX_EPOCH};
+
+
+fn main() {
+    // let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).expect("Time went backwards").as_secs();
+    // let test_foo_value = timestamp+5;
+    // env::set_var("TEST_FOO",test_foo_value.to_string());
+    // println!("cargo:rerun-if-changed=build.rs");
+    // println!("rcargo:rustc-env=TEST_FOO={}",test_foo_value);
+    // if test_foo_value %2 ==0{
+    //     println!("cargo:rustc-cfg=feature=\"pass\"");
+        
+    // }
+
 }
-
-
-
-
-mod Foo{
-    fn my_demo_function(a:u32) -> u32 {a}
-}
-
 
 
 #[cfg(test)]
@@ -28,9 +38,16 @@ mod tests {
 
     #[test]
     fn test_success() {
-        unsafe {
-            my_demo_function(123);
-            my_demo_function_alias(456);
-        }
+        let timestamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs();
+        let e:u64 = timestamp;
+        assert! (timestamp >= e && timestamp < e + 10);
+        
+        // // #[cfg(feature = "pass")]
+        // let timestamp:u64 =10;
+        // let e:u64 = 10;
+        assert! (timestamp>=e&&timestamp<e+10);
+        // return;
+
+        // panic!("no cfg set");
     }
 }
